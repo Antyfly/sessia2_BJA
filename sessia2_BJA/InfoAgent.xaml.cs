@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static sessia2_BJA.Entity.Entity;
 
 namespace sessia2_BJA
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для InfoAgent.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InfoAgent : Window
     {
-        public MainWindow()
+        public InfoAgent(Agent agent)
         {
             InitializeComponent();
         }

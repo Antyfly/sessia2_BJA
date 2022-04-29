@@ -1,0 +1,70 @@
+﻿<Window x:Class="sessia2_BJA.Rustle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sessia2_BJA"
+        mc:Ignorable="d"
+        Title="Агенты" Height="600" Width="1000" Style="{StaticResource Window}" WindowStartupLocation="CenterScreen">
+    <TabControl x:Name="MainTabs" SelectionChanged="MainTabs_SelectionChanged">
+        <TabItem Style="{StaticResource ItemTab}">
+            <TabItem.Header>
+                <TextBlock Text="Все агенты" Foreground="Black"/>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Image/Приятный шелест.png" Height="47" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Приятный шелест" FontSize="47" VerticalAlignment="Top" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <Grid Margin="0,14,-0.4,0.4" Grid.RowSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="47*"/>
+                            <RowDefinition Height="457*"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="New" Style="{StaticResource Button}" Width="100" Content="Добавить агента" HorizontalAlignment="Right" Click="New_Click" />
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation ="Horizontal">
+                            <Label Content="Поиск: "/>
+                            <TextBox x:Name="Poisk_TB" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" TextChanged="Poisk_TB_TextChanged" Width="150" Height="25"  VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center"/>
+                            <Label Content="Фильтрация:"/>
+                            <ComboBox HorizontalAlignment="Stretch" Width="50" Height="25" VerticalAlignment="Top" x:Name="RowsBox" SelectionChanged="RowsBox_SelectionChanged"/>
+                        </StackPanel>
+                    </Grid>
+                    <ListView x:Name="ListViewer" Grid.Row="1" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="List_MouseDoubleClick" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10" Width="200" Height="220" BorderBrush="#FF2F2F2F" BorderThickness="1" CornerRadius="10" Padding="5">
+                                    <StackPanel>
+                                        <Border Width="120" Height="130" CornerRadius="5" Margin="5">
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="1"/>
+                                            </Border.Effect>
+                                            <Image Source="{Binding Logo}"/>
+                                        </Border>
+                                        <TextBlock Margin="5" Text="{Binding Title}"/>
+                                        <TextBlock x:Name="Station" Margin="0" Text="{Binding Phone}"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Grid Margin="0,2.8,0.4,0" Grid.Row="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="Rows_label" Grid.Column="0" Margin="0.8,459,-1,-45.6" Content=""/>
+                        <Button x:Name="Back" Background="#C6D7FF" Click="Back_Click" Content="Назад" Margin="2.4,430,139,-45.6" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <Button x:Name="Next" Grid.Column="2" Background="#C6D7FF" Click="Next_Click" Content="Вперед" Margin="0.8,430,-1,-45.6"/>
+                    </Grid>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</Window>
