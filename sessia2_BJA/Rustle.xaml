@@ -32,23 +32,29 @@
                             <Label Content="Поиск: "/>
                             <TextBox x:Name="Poisk_TB" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" TextChanged="Poisk_TB_TextChanged" Width="150" Height="25"  VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center"/>
                             <Label Content="Фильтрация:"/>
-                            <ComboBox HorizontalAlignment="Stretch" Width="50" Height="25" VerticalAlignment="Top" x:Name="RowsBox" SelectionChanged="RowsBox_SelectionChanged"/>
+                            <ComboBox HorizontalAlignment="Stretch" Width="55" Height="25" VerticalAlignment="Top" x:Name="RowsBox" SelectionChanged="RowsBox_SelectionChanged"/>
                         </StackPanel>
                     </Grid>
                     <ListView x:Name="ListViewer" Grid.Row="1" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="List_MouseDoubleClick" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border Margin="10" Width="200" Height="220" BorderBrush="#FF2F2F2F" BorderThickness="1" CornerRadius="10" Padding="5">
-                                    <StackPanel>
-                                        <Border Width="120" Height="130" CornerRadius="5" Margin="5">
+                                <Border Margin="10" Width="900" Height="100" BorderBrush="#FF2F2F2F" BorderThickness="1" CornerRadius="10" Padding="5">
+                                   
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border  Height="100" CornerRadius="5">
                                             <Border.Effect>
                                                 <DropShadowEffect ShadowDepth="1"/>
                                             </Border.Effect>
-                                            <Image Source="{Binding Logo}"/>
+                                            <Image x:Name="PhotoP" Source="{Binding Logo}" HorizontalAlignment="Left" Height="100" Width="100"/>
                                         </Border>
-                                        <TextBlock Margin="5" Text="{Binding Title}"/>
-                                        <TextBlock x:Name="Station" Margin="0" Text="{Binding Phone}"/>
+                                        <TextBlock Text="{Binding AgentType.Title}"/>
+                                        <TextBlock Text=" | "/>
+                                        <TextBlock Text="{Binding Title}" />
+                                        <TextBlock Text=" | "/>
+                                        <TextBlock Text="{Binding Phone}" />
                                     </StackPanel>
+                                    
+                                   
                                 </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>

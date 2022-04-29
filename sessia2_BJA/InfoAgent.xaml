@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sessia2_BJA"
         mc:Ignorable="d"
-        Title="InfoAgent" Height="450" Width="800" Style="{StaticResource Window}">
+        Title="InfoAgent" Height="450" Width="400" Style="{StaticResource Window}" WindowStartupLocation="CenterScreen"> 
     <Grid>
         
     </Grid>

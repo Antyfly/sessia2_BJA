@@ -11,16 +11,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static sessia2_BJA.Entity.Entity;
 
 namespace sessia2_BJA
 {
     /// <summary>
-    /// Логика взаимодействия для InfoAgent.xaml
+    /// Логика взаимодействия для New.xaml
     /// </summary>
-    public partial class InfoAgent : Window
+    public partial class New : Window
     {
-        public InfoAgent(Entity.Agent agent)
+        public New()
         {
             InitializeComponent();
         }

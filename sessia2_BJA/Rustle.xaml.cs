@@ -31,6 +31,10 @@ namespace sessia2_BJA
         {
             InitializeComponent();
             Update();
+            var sourse = content.AgentType.Select(x => x.Title).Distinct().ToList();
+            sourse.Insert(0, "");
+            RowsBox.ItemsSource = sourse;
+            RowsBox.SelectedIndex = 0;
         }
 
         private void MainTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,11 +46,6 @@ namespace sessia2_BJA
         {
             var datasourse = content.Agent.ToList();
             RowAll = datasourse.Count();
-            if (string.IsNullOrEmpty(Search) != true)
-            {
-                string search = Search.ToLower();
-                datasourse = datasourse.Where(i => i.Title.ToLower().Contains(search) || i.Email.ToLower().Contains(search) || i.Phone.ToLower().Contains(search) == true).ToList();
-            }
             RowsShowed = datasourse.Count();
             ListViewer.ItemsSource = datasourse;
 
@@ -59,17 +58,18 @@ namespace sessia2_BJA
             {
                 Next.IsEnabled = true;
             }
-            
+
         }
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
-
+            New wi = new New();
+            wi.ShowDialog();
         }
 
         private void Poisk_TB_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Update();
         }
 
         private void RowsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -79,7 +79,12 @@ namespace sessia2_BJA
 
         private void List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            if (ListViewer.SelectedItem is Entity.Agent agent)
+            {
+                InfoAgent wi = new InfoAgent(agent);
+                wi.ShowDialog();
+                
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

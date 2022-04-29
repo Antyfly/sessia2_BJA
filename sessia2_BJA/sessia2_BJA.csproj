@@ -68,6 +68,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Rustle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,6 +140,9 @@
     </Compile>
     <Compile Include="InfoAgent.xaml.cs">
       <DependentUpon>InfoAgent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="New.xaml.cs">
+      <DependentUpon>New.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rustle.xaml.cs">
       <DependentUpon>Rustle.xaml</DependentUpon>
